@@ -1,0 +1,18 @@
+<ion-header>
+
+  <ion-navbar transparent> </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div *ngFor="let data of responseData">
+      <img src="http://192.168.1.55/combindrestapi/images/{{data.images}}" width="100%">
+    <div padding>
+      <ion-card-title>{{data.name}}</ion-card-title>
+      <div [innerHtml]="data.description"></div>
+      <p>ราคา : {{data.price}} บาท</p>
+      <p>วันที่ : {{data.create_at}}</p>
+    </div>
+  </div>
+</ion-content>
