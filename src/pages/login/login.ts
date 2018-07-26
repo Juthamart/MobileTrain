@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
+import { WebapiServiceProvider } from '../../providers/webapi-service/webapi-service';
 
 /**
  * Generated class for the LoginPage page.
@@ -15,28 +16,51 @@ import { TabsPage } from '../tabs/tabs';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  username:any;
-  password:any;
+  userData = {
+    "Username": "",
+    "Password": ""
+  };
+  //get data from api
+  responseData: any;
 
   constructor(
-    public navCtrl: NavController, 
-    public navParams: NavParams) {
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public alertCtrl: AlertController,
+    public webapi: WebapiServiceProvider) {
   }
 
   ionViewDidLoad() {
-     
+
   }
 
-  login(){
-    if(this.username == "admin" && this.password =="1234"){
-      alert("เข้าสู่ระบบสำเร็จ");
-      //บันทึกข้อมูลของ local storage
-      localStorage.setItem("userData",this.username);
-      //ปิดหน้า login และกลับไปหน้าหลัง
-     this.navCtrl.setRoot(TabsPage);
-    } else{
-      alert("เข้าสู่ระบบไม่สำเร็จ");
-    }
+  login() {
+    //function check login
+    this.webapi.postData(this.userData, 'login.php').then((result) => {
+      this.responseData = result;
+
+      //console.log(this.responseData);
+      if (this.responseData.userData) { //ถ้ามีข้อมูลใน userData ใน responseData
+        //alert 
+        const alert = this.alertCtrl.create({
+          title: 'เข้าสู่ระบบสำเร็จ',
+          buttons: ['OK']
+        });
+        alert.present();
+        //บันทึกข้อมูลของ local storage
+        localStorage.setItem("userData", this.userData.Username);
+        //ปิดหน้า login และกลับไปหน้าหลัง
+        this.navCtrl.setRoot(TabsPage);
+      } else {
+        const alert = this.alertCtrl.create({
+          title: 'เข้าสู่ระบบไม่สำเร็จ!',
+          subTitle: 'กรุณากรอกข้อมูลอีกครั้ง',
+          buttons: ['OK']
+        });
+        alert.present();
+      }
+    });
+
 
   }
 

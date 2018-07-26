@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App,AlertController } from 'ionic-angular';
 import { WebapiServiceProvider } from '../../providers/webapi-service/webapi-service';
 import { TabsPage } from '../tabs/tabs';
-import { AlertController } from 'ionic-angular';
 
 
 /**
