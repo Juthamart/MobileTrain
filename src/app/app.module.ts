@@ -30,6 +30,11 @@ import { CourseDetailPage } from '../pages/course-detail/course-detail';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 
+//push notification with firbase
+import { FCM } from '@ionic-native/fcm';
+import { PushDetailPage } from '../pages/push-detail/push-detail';
+import { ChartPage } from '../pages/chart/chart';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -46,7 +51,9 @@ import { RegisterPage } from '../pages/register/register';
     TabsPage,
     CourseDetailPage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    PushDetailPage,
+    ChartPage
   ],
   imports: [
     BrowserModule,
@@ -69,7 +76,9 @@ import { RegisterPage } from '../pages/register/register';
     TabsPage,
     CourseDetailPage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    PushDetailPage,
+    ChartPage
   ],
   providers: [
     StatusBar,
@@ -78,9 +87,13 @@ import { RegisterPage } from '../pages/register/register';
     WebapiServiceProvider,
     Device,
     Camera,
-    BarcodeScanner
+    BarcodeScanner,
+    FCM
+    
     
     
   ]
 })
-export class AppModule {}
+export class AppModule {
+  
+}

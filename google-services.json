@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "836046281005",
+    "firebase_url": "https://ioniccombindapppush-2d97f.firebaseio.com",
+    "project_id": "ioniccombindapppush-2d97f",
+    "storage_bucket": "ioniccombindapppush-2d97f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:836046281005:android:bf09aa7d2346fe7f",
+        "android_client_info": {
+          "package_name": "com.combindapp.itsme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "836046281005-kpqr5t4cqb6t263o6ut4nghd8k1fp19b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbUjxVxRAkxty0D3du_IP2wPs7HnDGLwo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
