@@ -1,6 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { Device } from '@ionic-native/device';
+import { Camera } from '@ionic-native/camera';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+
 
 import { MyApp } from './app.component';
 
@@ -71,7 +75,12 @@ import { RegisterPage } from '../pages/register/register';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    WebapiServiceProvider
+    WebapiServiceProvider,
+    Device,
+    Camera,
+    BarcodeScanner
+    
+    
   ]
 })
 export class AppModule {}
